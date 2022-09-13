@@ -1,0 +1,45 @@
+{
+  "name": "mongo-press",
+  "version": "1.0.0",
+  "description": "API",
+  "private": true,
+  "scripts": {
+    "build": "npx tsc",
+    "createbuild": "yarn build | npm run build",
+    "prestart": "yarn createbuild && pm2 delete all || : && pm2 flush",
+    "start": "pm2 start ecosystem.config.js --env development",
+    "start:prod": "pm2 start ecosystem.prod.config.js --env production",
+    "dev": "node -r dotenv/config dist/index.js dotenv_config_path=.env dotenv_config_debug=true"
+  },
+  "keywords": [
+    "API"
+  ],
+  "author": "RN Kushwaha",
+  "license": "MIT",
+  "_moduleAliases": {
+    "@utils": "dist/utils",
+    "@middlewares": "dist/middlewares"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "module-alias": "^2.2.2",
+    "morgan": "^1.10.0",
+    "winston": "^3.8.2",
+    "winston-daily-rotate-file": "^4.7.1"
+  },
+  "devDependencies": {
+    "@types/morgan": "^1.9.3",
+    "@types/compression": "^1.7.2",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.7.14",
+    "tsconfig-paths": "^4.1.0",
+    "dotenv": "^16.0.2",
+    "typescript": "^4.8.2"
+  }
+}
