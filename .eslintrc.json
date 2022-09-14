@@ -11,6 +11,6 @@
     },
     "rules": {
         "indent": ["error", 4],
-        "trailingComma": 0
+        "trailingComma": 2
     }
 }
