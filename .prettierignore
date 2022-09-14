@@ -1,0 +1,10 @@
+# Ignore artifacts:
+build
+dist
+logs
+coverage
+
+# misc
+yarn.lock
+package.json.lock
+README.md
