@@ -9,19 +9,19 @@ module.exports = {
                 watch: './src/.', // for watching changes
                 instances: '2',
                 NODE_ENV: 'development',
-                PORT: 8005
+                PORT: 8005,
             },
             env_staging: {
                 instances: '4', // max or 2, 4 etc.
                 NODE_ENV: 'staging',
-                PORT: 8006
+                PORT: 8006,
             },
             env_production: {
                 instances: 'max', // max or 2, 4 etc.
                 NODE_ENV: 'production',
-                PORT: 81 // override PORT defined in env to this value when env is production
-            }
-        }
+                PORT: 81, // override PORT defined in env to this value when env is production
+            },
+        },
     ],
 
     deploy: {
@@ -34,7 +34,7 @@ module.exports = {
             'pre-deploy-local': '',
             'post-deploy':
                 'npm install && pm2 reload ecosystem.config.js --env production',
-            'pre-setup': ''
-        }
-    }
+            'pre-setup': '',
+        },
+    },
 }

@@ -7,9 +7,9 @@ module.exports = {
             instances: 'max', // max or 2, 4 etc.
             env_production: {
                 NODE_ENV: 'production',
-                PORT: 81 // override PORT defined in env to this value when env is production
-            }
-        }
+                PORT: 81, // override PORT defined in env to this value when env is production
+            },
+        },
     ],
 
     deploy: {
@@ -22,7 +22,7 @@ module.exports = {
             'pre-deploy-local': '',
             'post-deploy':
                 'npm install && pm2 reload ecosystem.config.js --env production',
-            'pre-setup': ''
-        }
-    }
+            'pre-setup': '',
+        },
+    },
 }

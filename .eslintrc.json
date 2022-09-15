@@ -4,13 +4,22 @@
         "commonjs": true,
         "es2021": true
     },
-    "extends": "standard-with-typescript",
+    "extends": ["standard-with-typescript", "prettier"],
     "overrides": [],
     "parserOptions": {
         "ecmaVersion": "latest"
     },
     "rules": {
         "indent": ["error", 4],
-        "trailingComma": 2
+        "comma-dangle": [
+            "error",
+            {
+                "arrays": "always-multiline",
+                "objects": "always-multiline",
+                "imports": "always-multiline",
+                "exports": "always-multiline",
+                "functions": "always-multiline"
+            }
+        ]
     }
 }
