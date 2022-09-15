@@ -5,11 +5,14 @@
         "es2021": true
     },
     "extends": ["standard-with-typescript", "eslint:recommended", "prettier"],
-    "overrides": [],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "tsconfigRootDir": "./",
+        "project": ["./tsconfig.json"]
     },
+    "plugins": ["@typescript-eslint"],
     "rules": {
         "comma-dangle": ["error", "always-multiline"],
         "eol-last": ["error", "always"],
@@ -32,8 +35,18 @@
             }
         ],
         "no-unused-vars": "error",
-        "consistent-return": 2,
+        "consistent-return": 1,
         "no-else-return": 2,
-        "space-unary-ops": 2
-    }
+        "space-unary-ops": 2,
+        "@typescript-eslint/explicit-function-return-type": "off"
+    },
+    "overrides": [
+        {
+            // enable the rule specifically for TypeScript files
+            "files": ["*.ts", "*.tsx"],
+            "rules": {
+                "@typescript-eslint/explicit-function-return-type": "error"
+            }
+        }
+    ]
 }
