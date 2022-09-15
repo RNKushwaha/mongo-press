@@ -9,7 +9,7 @@ import helmet from 'helmet'
 import morganMiddleware from '@middlewares/morgan'
 import Logger from '@utils/logger'
 import corsOptionsDelegate from '@middlewares/cors'
-
+const abc = 1
 const allowlist: string[] = ['http://localhost:3000', 'http://localhost:4002']
 
 function shouldCompress(req: Request, res: Response) {
