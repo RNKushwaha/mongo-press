@@ -4,12 +4,15 @@
         "commonjs": true,
         "es2021": true
     },
-    "extends": ["standard-with-typescript", "prettier"],
+    "extends": ["standard-with-typescript", "eslint:recommended", "prettier"],
     "overrides": [],
     "parserOptions": {
         "ecmaVersion": "latest"
     },
     "rules": {
+        "consistent-return": 2,
+        "no-else-return": 2,
+        "space-unary-ops": 2,
         "indent": ["error", 4],
         "comma-dangle": [
             "error",
