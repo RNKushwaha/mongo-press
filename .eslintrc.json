@@ -6,24 +6,34 @@
     },
     "extends": ["standard-with-typescript", "eslint:recommended", "prettier"],
     "overrides": [],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest"
     },
     "rules": {
+        "comma-dangle": ["error", "always-multiline"],
+        "eol-last": ["error", "always"],
+        "indent": ["error", 4],
+        "semi": ["error", "never"],
+        "sort-imports": [
+            "error",
+            {
+                "allowSeparatedGroups": true,
+                "ignoreDeclarationSort": true,
+                "memberSyntaxSortOrder": ["all", "single", "multiple", "none"]
+            }
+        ],
+        "sort-keys": 0,
+        "quotes": [
+            "error",
+            "single",
+            {
+                "avoidEscape": true
+            }
+        ],
         "no-unused-vars": "error",
         "consistent-return": 2,
         "no-else-return": 2,
-        "space-unary-ops": 2,
-        "indent": ["error", 4],
-        "comma-dangle": [
-            "error",
-            {
-                "arrays": "always-multiline",
-                "objects": "always-multiline",
-                "imports": "always-multiline",
-                "exports": "always-multiline",
-                "functions": "always-multiline"
-            }
-        ]
+        "space-unary-ops": 2
     }
 }
