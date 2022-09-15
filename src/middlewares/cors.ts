@@ -3,7 +3,7 @@ import { Request } from 'express'
 const corsOptionsDelegate = function (allowlist: string[]) {
     return function (req: Request, callback: any) {
         const hdr = req.header('Origin')
-        let corsOptions = {
+        const corsOptions = {
             allowedHeaders: [
                 'Origin',
                 'X-Requested-With',
@@ -18,7 +18,7 @@ const corsOptionsDelegate = function (allowlist: string[]) {
             origin: false, // disable CORS for this request
         }
 
-        if (hdr != undefined && allowlist.includes(hdr)) {
+        if (hdr !== undefined && allowlist.includes(hdr)) {
             corsOptions.origin = true // enable the requested origin in the CORS response
         }
 

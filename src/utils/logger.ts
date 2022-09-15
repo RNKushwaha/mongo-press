@@ -7,8 +7,8 @@ const LOG_PATH = 'logs'
 // the current NODE_ENV: show all the log levels
 // if the server was run in development mode; otherwise,
 // if it was run in production, show only warn and error messages.
-const level = () => {
-    const env = process.env.NODE_ENV || 'development'
+const level = (): string => {
+    const env = process.env.NODE_ENV ?? 'development'
     return env === 'development' ? 'debug' : 'warn'
 }
 
@@ -44,10 +44,13 @@ const Logger = createLogger({
         // requestIdFormat(),
         format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }),
         format.printf(
-            (info) => `${info.timestamp} | ${info.level}: ${info.message}`,
+            (info) =>
+                `${String(info.timestamp)} | ${String(info.level)}: ${String(
+                    info.message,
+                )}`,
         ),
         format.errors({ stack: true }),
-        format.prettyPrint(), //writes as json
+        format.prettyPrint(), // writes as json
     ),
     // Define which transports the logger must use to print out messages.
     // In this example, we are using three different transports
@@ -58,7 +61,9 @@ const Logger = createLogger({
                 format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }),
                 format.printf(
                     (info) =>
-                        `${info.timestamp} | ${info.level}: ${info.message}`,
+                        `${String(info.timestamp)} | ${String(
+                            info.level,
+                        )}: ${String(info.message)}`,
                 ),
                 format.errors({ stack: true }),
                 // format.prettyPrint(),
