@@ -13,7 +13,9 @@
         "prepare": "husky install"
     },
     "keywords": [
-        "API"
+        "ExpressJS API",
+        "NodeJS API",
+        "MongoDB+ ExpressJS"
     ],
     "husky": {
         "hooks": {

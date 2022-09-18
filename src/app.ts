@@ -3,12 +3,12 @@ import bodyParser from 'body-parser'
 import compression from 'compression'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
-import 'module-alias/register'
 import helmet from 'helmet'
 
 import morganMiddleware from '@middlewares/morgan'
 import Logger from '@utils/logger'
 import corsOptionsDelegate from '@middlewares/cors'
+
 const allowlist: string[] = ['http://localhost:3000', 'http://localhost:4002']
 
 const shouldCompress = (req: Request, res: Response): boolean => {

@@ -1,34 +1,32 @@
 # mongo-press
-APIs using Express + MongoDB
 
-Features
-========
+Create, deploy & scale production ready APIs using ExpressJS + MongoDB.
 
-- TypeScript for type safety
-- PM2 for process manager
-- Cluster in production mode for max performance
-- Winston & Morgon for API Loging
-- Log file rotator
-- CORS enabled
-- Compression for faster API response
-- dotenv for environment variables
+## Features Available
 
-Roadmap
-=========
+- [x] TypeScript for type safety
+- [x] PM2 for process manager
+- [x] Cluster in production mode for max performance
+- [x] Winston & Morgon for API Loging
+- [x] Log file rotator
+- [x] CORS enabled
+- [x] Compression for faster API response
+- [x] dotenv for environment variables
+- [x] Prettier for code formatting
+- [x] ESLINT for code linting
 
-- MongoDB for database
-- Redis for caching
-- Circuit breaker for error fallback
-- cron for scheduling cron jobs
-- JOI for request validation
-- Jest for Testing
-- Cypress for e2e testing
-- Prettier for code formatting
-- ESLINT for code linting
-- EventEmitter for custom event emitters
-- Web Sockets for instant notifications
-- JWT for API authentication
-- Mailgun for sending emails
-- API docs using Swagger
-- API load testing/performance testing tools
+## Roadmap for 2022
 
+- [ ] MongoDB for database
+- [ ] Redis for caching
+- [ ] Circuit breaker for error fallback
+- [ ] cron for scheduling cron jobs
+- [ ] JOI for request validation
+- [ ] Jest for Testing
+- [ ] Cypress for e2e testing
+- [ ] EventEmitter for custom event emitters
+- [ ] Web Sockets for instant notifications
+- [ ] JWT for API authentication
+- [ ] Mailgun for sending emails
+- [ ] API docs using Swagger
+- [ ] API load testing/performance testing tools

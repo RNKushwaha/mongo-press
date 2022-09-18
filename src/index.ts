@@ -1,3 +1,5 @@
+import 'module-alias/register'
+
 import Logger from '@utils/logger'
 import app from './app'
 
