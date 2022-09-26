@@ -14,6 +14,7 @@ Create, deploy & scale production ready APIs using ExpressJS + MongoDB.
 - [x] dotenv for environment variables
 - [x] Prettier for code formatting
 - [x] ESLINT for code linting
+- [x] API docs using Swagger (yaml)
 
 ## Roadmap for 2022
 
@@ -28,5 +29,4 @@ Create, deploy & scale production ready APIs using ExpressJS + MongoDB.
 - [ ] Web Sockets for instant notifications
 - [ ] JWT for API authentication
 - [ ] Mailgun for sending emails
-- [ ] API docs using Swagger
 - [ ] API load testing/performance testing tools

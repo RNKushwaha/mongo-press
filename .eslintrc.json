@@ -1,52 +1,65 @@
 {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es2021": true
-    },
-    "extends": ["standard-with-typescript", "eslint:recommended", "prettier"],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module",
-        "tsconfigRootDir": "./",
-        "project": ["./tsconfig.json"]
-    },
-    "plugins": ["@typescript-eslint"],
-    "rules": {
-        "comma-dangle": ["error", "always-multiline"],
-        "eol-last": ["error", "always"],
-        "indent": ["error", 4],
-        "semi": ["error", "never"],
-        "sort-imports": [
-            "error",
-            {
-                "allowSeparatedGroups": true,
-                "ignoreDeclarationSort": true,
-                "memberSyntaxSortOrder": ["all", "single", "multiple", "none"]
-            }
-        ],
-        "sort-keys": 0,
-        "quotes": [
-            "error",
-            "single",
-            {
-                "avoidEscape": true
-            }
-        ],
-        "no-unused-vars": "error",
-        "consistent-return": 1,
-        "no-else-return": 2,
-        "space-unary-ops": 2,
-        "@typescript-eslint/explicit-function-return-type": "off"
-    },
-    "overrides": [
-        {
-            // enable the rule specifically for TypeScript files
-            "files": ["*.ts", "*.tsx"],
-            "rules": {
-                "@typescript-eslint/explicit-function-return-type": "error"
-            }
-        }
-    ]
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": [
+    "standard-with-typescript",
+    "eslint:recommended",
+    "prettier",
+    "plugin:security/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "tsconfigRootDir": "./",
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "eol-last": ["error", "always"],
+    "indent": ["error", 2], // for 2 space
+    "linebreak-style": ["error", "unix"],
+    "semi": ["error", "never"],
+    "sort-imports": [
+      "error",
+      {
+        "allowSeparatedGroups": true,
+        "ignoreDeclarationSort": true,
+        "memberSyntaxSortOrder": ["all", "single", "multiple", "none"]
+      }
+    ],
+    "sort-keys": 0,
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "no-unused-vars": "error",
+    "consistent-return": 1,
+    "no-else-return": 2,
+    "space-unary-ops": 2,
+    "@typescript-eslint/strict-boolean-expressions": [
+      2,
+      {
+        "allowString": false,
+        "allowNumber": false
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off"
+  },
+  "overrides": [
+    {
+      // enable the rule specifically for TypeScript files
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "error"
+      }
+    }
+  ]
 }

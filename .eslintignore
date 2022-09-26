@@ -1,5 +1,6 @@
 .eslintrc.json
 ecosystem.config.js
 ecosystem.prod.config.js
+benchmark.js
 dist
 build
