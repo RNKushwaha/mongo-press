@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from 'express'
+import express, { Express, NextFunction, Request, Response } from 'express'
 import bodyParser from 'body-parser'
 import compression from 'compression'
 import cookieParser from 'cookie-parser'
@@ -14,6 +14,7 @@ import corsOptionsDelegate from '@middlewares/cors'
 // import Logger from '@utils/logger'
 import routes from '@routes/index'
 import { allowedHosts } from '@config/constants'
+import { errorHandler } from './exceptions'
 
 const allowHosts: string[] = allowedHosts
 
@@ -44,9 +45,9 @@ app.disable('x-powered-by')
 // enable CORS
 app.use(cors(corsOptionsDelegate(allowHosts)))
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ limit: '1mb', extended: false }))
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: '1mb' }))
 // compress response
 app.use(compression({ filter: shouldCompress }))
 
@@ -54,7 +55,6 @@ app.use(compression({ filter: shouldCompress }))
 app.use('/api', routes)
 
 // Swagger API docs
-// let swaggerFile = ''
 const swaggerFile = yml.load(
   fs.readFileSync(path.join('dist', 'openapi.yaml'), 'utf8'),
 )
@@ -63,6 +63,14 @@ app.use('/explorer', swaggerUi.serve)
 app.get('/explorer', swaggerUi.setup(swaggerFile as JsonObject))
 
 // catch 404 and forward to error handler
+
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  // logger.logError(err)
+  // messenger.sendErrorMessage(err)
+  // 3. Lastly, handle the error
+  errorHandler.handleError(err, res)
+})
+
 // app.use((req: Request, res: Response, next: NextFunction) => {
 //   const err = new Error('Not Found')
 //   err.status = 404

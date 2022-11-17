@@ -11,6 +11,7 @@ app
     )
   })
   .on('error', (err) => {
+    console.error(err)
     Logger.error(err)
     process.exit(1)
   })
